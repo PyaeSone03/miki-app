@@ -1,6 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
+/**
+ * @typedef {{ text: string; image: string; link: string }} FlowItem
+ */
+
+/**
+ * @param {{
+ * items?: FlowItem[];
+ * speed?: number;
+ * hoverLabel?: string;
+ * textColor?: string;
+ * }} props
+ */
 function FlowingMenu({
   items = [],
   speed = 14,

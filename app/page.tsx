@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import TextType from "@/components/TextType";
 import FlowingMenu from "@/components/FlowingMenu";
+import FlowingMenuStandard from "@/components/FlowingMenuStandard";
 
 const socialLinks = [
   { href: "https://www.linkedin.com/in/ei-shwe-sin-thant-miki-0370a019b/", label: "LinkedIn", Icon: Linkedin },
@@ -25,6 +26,24 @@ const brandItems = [
   { text: "Coca-Cola", image: "/brands/Coca-Cola_logo.svg_.png", link: "#" },
   { text: "Shell", image: "/brands/shell-logo.png", link: "#" },
   { text: "NASA", image: "/brands/nasa-curvy-logo.png", link: "#" },
+];
+
+const projectItems = [
+  {
+    text: "Video & Photo Production",
+    image: "/brands/barbie-logo.png",
+    link: "/video-photo-production",
+  },
+  {
+    text: "Project Highlight",
+    image: "/brands/fedex-logo.png",
+    link: "/event-lead-brand-activation",
+  },
+  {
+    text: "Event Lead & Brand Activation",
+    image: "/brands/mercedes-logo.png",
+    link: "/event-lead-brand-activation",
+  },
 ];
 
 export default function Page() {
@@ -61,16 +80,23 @@ export default function Page() {
         <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between rounded-2xl border border-white/30 bg-black/30 px-4 text-white backdrop-blur-xl">
           <span className="text-sm font-semibold tracking-[0.18em]">MIKI</span>
           <nav className="hidden items-center gap-7 text-sm font-medium sm:flex">
-            <Link href="#">About Me</Link>
-            <Link href="#">Work</Link>
+            <Link href="#about-me">About Me</Link>
+            <Link href="#worked-with">Worked With</Link>
+            <Link href="#brand-project">Brand Project</Link>
           </nav>
-          <button className="rounded-full border border-white/40 px-4 py-1.5 text-sm font-medium transition hover:bg-white/15">
+          <Link
+            href="#contact"
+            className="rounded-full border border-white/40 px-4 py-1.5 text-sm font-medium transition hover:bg-white/15"
+          >
             Contact
-          </button>
+          </Link>
         </div>
       </header>
 
-      <section className="mx-auto grid min-h-screen w-full max-w-6xl grid-cols-1 items-center gap-10 px-6 pb-16 pt-28 text-white md:grid-cols-2 md:px-10">
+      <section
+        id="about-me"
+        className="mx-auto grid min-h-screen scroll-mt-24 w-full max-w-6xl grid-cols-1 items-center gap-10 px-6 pb-16 pt-28 text-white md:grid-cols-2 md:px-10"
+      >
         <div ref={contentRef} className="space-y-6 font-sans">
           <p className="text-sm font-medium tracking-wide text-white/90 md:text-base">
             Hello,
@@ -78,6 +104,7 @@ export default function Page() {
           <h1 className="min-h-[4rem] text-3xl font-semibold leading-[1.1] tracking-tight text-[#ffe2d9] md:min-h-[5rem] md:text-4xl">
             <TextType
               text={["Ei Shwe Sin Thant", "Miki Anna", 'Ei Shwe Sin Thant']}
+              texts={["Ei Shwe Sin Thant", "Miki Anna", "Ei Shwe Sin Thant"]}
               loop={false}
               finalText="Ei Shwe Sin Thant"
               typingSpeed={70}
@@ -121,7 +148,20 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="w-full pb-20 text-white">
+      <section id="brand-project" className="w-full scroll-mt-24 border-y border-white/20 text-white">
+        <div className="h-[220px] overflow-hidden md:h-[260px]">
+          <FlowingMenuStandard
+            items={projectItems}
+            speed={14}
+            textColor="#f8f1ef"
+            marqueeBgColor="#f2d8d0"
+            marqueeTextColor="#1a1210"
+            borderColor="rgba(255,255,255,0.2)"
+          />
+        </div>
+      </section>
+
+      <section id="worked-with" className="w-full scroll-mt-24 pb-20 text-white">
         <div className="h-[220px] overflow-hidden border-y border-white/25 md:h-[260px]">
           <FlowingMenu
             items={brandItems}
@@ -152,7 +192,7 @@ export default function Page() {
         </nav>
       </footer>
 
-      <footer className="w-full pb-8 pt-2 text-center">
+      <footer id="contact" className="w-full scroll-mt-24 pb-8 pt-2 text-center">
         <p className="text-xs font-medium uppercase tracking-[0.08em] text-white/70 md:text-sm">
           . Ei Shwe Sin Thant . Miki Anna . Copyright 2026 .
         </p>
