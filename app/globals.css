@@ -124,3 +124,31 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes texttype-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes brand-loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-loop-track {
+  animation: brand-loop 18s linear infinite;
+}
+
+.brand-loop-track:hover {
+  animation-play-state: paused;
+}
