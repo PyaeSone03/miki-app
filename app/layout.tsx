@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Silk from "@/components/Silk";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,9 +26,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen`}
       >
-        {children}
+        <div className="fixed inset-0 -z-10 pointer-events-none">
+          <div style={{ width: "100%", height: "100%", position: "relative" }}>
+            <Silk
+              speed={5}
+              scale={0.8}
+              color="#bda8d6"
+              noiseIntensity={1.5}
+              rotation={5.1}
+            />
+          </div>
+        </div>
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );
