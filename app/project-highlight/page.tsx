@@ -4,15 +4,6 @@ import CircularGallery from "@/components/CircularGallery";
 
 const recapVideoUrl = "https://www.facebook.com/share/v/1BTPg4BdZi/?mibextid=wwXIfr";
 
-const galleryItems = [
-  { image: "/event/width_1200.webp", text: "Main Stage" },
-  { image: "/event/width_1200%20(1).webp", text: "Audience Buzz" },
-  { image: "/event/width_800.webp", text: "Brand Activation" },
-  { image: "/event/width_800%20(1).webp", text: "Interactive Zone" },
-  { image: "/event/width_800%20(2).webp", text: "Entertainment" },
-  { image: "/event/width_600.webp", text: "Event Moment" },
-];
-
 const socialLinks = [
   {
     href: "https://www.linkedin.com/in/ei-shwe-sin-thant-miki-0370a019b/",
@@ -26,11 +17,18 @@ const socialLinks = [
   },
 ];
 
-export default function EventLeadBrandActivationPage() {
+const galleryItems = [
+  { image: "/highligh/width_800.webp", text: "Project Highlight 01" },
+  { image: "/highligh/width_800%20(1).webp", text: "Project Highlight 02" },
+  { image: "/highligh/width_800%20(2).webp", text: "Project Highlight 03" },
+  { image: "/highligh/width_800%20(3).webp", text: "Project Highlight 04" },
+];
+
+export default function ProjectHighlightPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden text-white">
       <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(240,182,164,0.18),transparent_45%),radial-gradient(circle_at_82%_28%,rgba(138,168,227,0.15),transparent_42%),linear-gradient(140deg,rgba(12,11,16,0.94),rgba(18,12,24,0.9))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(240,182,164,0.16),transparent_45%),radial-gradient(circle_at_85%_25%,rgba(145,172,233,0.14),transparent_42%),linear-gradient(140deg,rgba(11,10,15,0.94),rgba(20,13,26,0.9))]" />
       </div>
 
       <header className="fixed inset-x-0 top-4 z-20 px-4 sm:px-8">
@@ -40,10 +38,10 @@ export default function EventLeadBrandActivationPage() {
           </Link>
           <nav className="hidden items-center gap-5 text-xs font-medium sm:flex md:text-sm">
             <Link href="/video-photo-production">Video &amp; Photo Production</Link>
-            <Link href="/project-highlight">Project Highlight</Link>
-            <Link href="/event-lead-brand-activation" className="text-[#ffe2d9]">
-              Event Lead &amp; Brand Activation
+            <Link href="/project-highlight" className="text-[#ffe2d9]">
+              Project Highlight
             </Link>
+            <Link href="/event-lead-brand-activation">Event Lead &amp; Brand Activation</Link>
           </nav>
           <Link
             href="/contact"
@@ -54,7 +52,7 @@ export default function EventLeadBrandActivationPage() {
         </div>
       </header>
 
-      <section className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-12 pt-32 md:px-10">
+      <section className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-16 pt-32 md:px-10">
         <div className="grid grid-cols-1 gap-8 rounded-3xl border border-white/20 bg-black/20 p-6 backdrop-blur-md md:grid-cols-[1fr_1.1fr] md:gap-10 md:p-8">
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
@@ -77,28 +75,18 @@ export default function EventLeadBrandActivationPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-full border border-white/35 px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-white transition hover:bg-white/10"
             >
-              Open on Facebook
+              Watch Recap Video
             </Link>
           </div>
 
           <div className="flex min-h-[340px] flex-col justify-center rounded-2xl border border-white/20 bg-black/30 p-6 md:min-h-[420px]">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
-              Recap Video
+              Overview
             </p>
-            <p className="mt-3 text-sm leading-7 text-white/80 md:text-base">
-              The embedded video is hidden on this view. Open the official recap
-              directly on Facebook.
+            <p className="mt-3 max-w-xl text-sm leading-7 text-white/80 md:text-base">
+              This page now shows your Project Highlight case details with the
+              project image set from <span className="font-semibold">public/highligh</span>.
             </p>
-            <div className="mt-6">
-              <Link
-                href={recapVideoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-white/35 px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-white transition hover:bg-white/10"
-              >
-                Watch Recap Video
-              </Link>
-            </div>
           </div>
         </div>
       </section>

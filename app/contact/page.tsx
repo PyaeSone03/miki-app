@@ -1,16 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { Facebook, Linkedin } from "lucide-react";
-import CircularGallery from "@/components/CircularGallery";
-
-const responsibilities = [
-  "Creative development and execution of digital videos",
-  "Full-cycle production management for TV commercials (TVCs)",
-  "Photoshoots for Key Visuals (KV) and stock images",
-  "Cross-functional coordination with creative, client, and media teams",
-  "Quality control, scheduling, budgeting, and location management",
-];
+import { Facebook, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import BrandsWorkedWith from "@/components/BrandsWorkedWith";
 
 const socialLinks = [
   {
@@ -25,16 +15,7 @@ const socialLinks = [
   },
 ];
 
-const galleryItems = [
-  { image: "/production/width_600.webp", text: "Production Lead" },
-  { image: "/production/width_800.webp", text: "Brand Visuals" },
-  { image: "/production/width_828.webp", text: "Photo Campaign" },
-  { image: "/production/width_1200.webp", text: "Event Activation" },
-  { image: "/production/width_1600.webp", text: "Creative Content" },
-  { image: "/production/width_800%20(1).webp", text: "Commercial Production" },
-];
-
-export default function VideoPhotoProductionPage() {
+export default function ContactPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden text-white">
       <div className="pointer-events-none fixed inset-0 z-0">
@@ -42,20 +23,18 @@ export default function VideoPhotoProductionPage() {
       </div>
 
       <header className="fixed inset-x-0 top-4 z-20 px-4 sm:px-8">
-        <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between rounded-2xl border border-white/30 bg-black/30 px-4 backdrop-blur-xl">
+        <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between rounded-2xl border border-white/30 bg-black/30 px-4 text-white backdrop-blur-xl">
           <Link href="/" className="text-sm font-semibold tracking-[0.12em]">
             Home
           </Link>
           <nav className="hidden items-center gap-5 text-xs font-medium sm:flex md:text-sm">
-            <Link href="/video-photo-production" className="text-[#ffe2d9]">
-              Video &amp; Photo Production
-            </Link>
+            <Link href="/video-photo-production">Video &amp; Photo Production</Link>
             <Link href="/project-highlight">Project Highlight</Link>
             <Link href="/event-lead-brand-activation">Event Lead &amp; Brand Activation</Link>
           </nav>
           <Link
             href="/contact"
-            className="rounded-full border border-white/40 px-4 py-1.5 text-sm font-medium transition hover:bg-white/15"
+            className="rounded-full border border-white/40 bg-white/10 px-4 py-1.5 text-sm font-medium transition hover:bg-white/15"
           >
             Contact
           </Link>
@@ -66,54 +45,51 @@ export default function VideoPhotoProductionPage() {
         <div className="grid grid-cols-1 gap-8 rounded-3xl border border-white/20 bg-black/20 p-6 backdrop-blur-md md:grid-cols-[1fr_1.1fr] md:gap-10 md:p-8">
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
-              Service Focus
+              Contact
             </p>
             <h1 className="text-3xl font-semibold leading-tight text-[#ffe2d9] md:text-5xl">
-              Video &amp; Photo Production
+              Let&apos;s Work Together
             </h1>
             <p className="max-w-xl text-sm leading-7 text-white/85 md:text-base">
-              Over 5 years of hands-on experience managing end-to-end
-              production for digital content, live streams, TV commercials, and
-              brand visuals. Expert in delivering high-impact content that
-              resonates with target audiences, meets brand objectives, and stays
-              on schedule and budget.
+              Available for event production, brand activations, and visual
+              content collaborations. Reach out for project inquiries and
+              scheduling.
             </p>
           </div>
 
-          <div className="flex min-h-[340px] flex-col justify-center rounded-2xl border border-white/20 bg-black/30 p-6 md:min-h-[420px]">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
-              Key Responsibilities
-            </p>
-            <ul className="mt-3 space-y-2 text-sm leading-7 text-white/80 md:text-base">
-              {responsibilities.map((item) => (
-                <li key={item}>- {item}</li>
-              ))}
+          <div className="rounded-2xl border border-white/20 bg-black/30 p-6">
+            <ul className="space-y-4 text-sm md:text-base">
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 text-white/80" />
+                <span>Based in Myanmar</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail className="mt-0.5 h-4 w-4 text-white/80" />
+                <Link href="mailto:eishwesinthant98@gmail.com" className="hover:underline">
+                  eishwesinthant98@gmail.com
+                </Link>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone className="mt-0.5 h-4 w-4 text-white/80" />
+                <Link href="tel:+959421127945" className="hover:underline">
+                  +959 421 127 945
+                </Link>
+              </li>
             </ul>
             <div className="mt-6">
               <Link
-                href="/project-highlight"
+                href="mailto:eishwesinthant98@gmail.com"
                 className="inline-flex items-center rounded-full border border-white/35 px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-white transition hover:bg-white/10"
               >
-                Open Project Highlight
+                Send Email
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative z-10 w-full pb-8">
-        <div className="h-[68vh] min-h-[500px] w-full overflow-hidden border-y border-white/20">
-          <CircularGallery
-            items={galleryItems}
-            bend={2.1}
-            textColor="#ffe2d9"
-            borderRadius={0.06}
-            font="bold 28px Geist Sans"
-            scrollSpeed={1.8}
-            scrollEase={0.06}
-            autoScrollSpeed={0.1}
-          />
-        </div>
+      <section className="relative z-10 pb-8">
+        <BrandsWorkedWith />
       </section>
 
       <footer className="fixed bottom-6 left-6 z-20">
@@ -136,7 +112,7 @@ export default function VideoPhotoProductionPage() {
         </nav>
       </footer>
 
-      <footer className="relative z-10 w-full pb-8 pt-6 text-center">
+      <footer className="relative z-10 w-full pb-8 pt-2 text-center">
         <p className="text-xs font-medium uppercase tracking-[0.08em] text-white/70 md:text-sm">
           . Ei Shwe Sin Thant . Miki Anna . Copyright 2026 .
         </p>

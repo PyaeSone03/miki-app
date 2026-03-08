@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 
@@ -22,6 +24,7 @@ function FlowingMenuStandard({
   marqueeBgColor = "#f2d8d0",
   marqueeTextColor = "#1a1210",
   borderColor = "rgba(255,255,255,0.2)",
+  compact = false,
 }) {
   return (
     <div className="h-full w-full overflow-hidden">
@@ -36,6 +39,7 @@ function FlowingMenuStandard({
             marqueeTextColor={marqueeTextColor}
             borderColor={borderColor}
             isFirst={idx === 0}
+            compact={compact}
           />
         ))}
       </nav>
@@ -53,6 +57,7 @@ function MenuItem({
   marqueeTextColor,
   borderColor,
   isFirst,
+  compact,
 }) {
   const itemRef = useRef(null);
   const marqueeRef = useRef(null);
@@ -138,7 +143,7 @@ function MenuItem({
     >
       <a
         href={link}
-        className="relative flex h-full cursor-pointer items-center justify-center text-[2.2vh] font-semibold uppercase no-underline"
+        className={`relative flex h-full cursor-pointer items-center justify-center font-semibold uppercase no-underline ${compact ? "text-[1.5vh] md:text-[1.7vh]" : "text-[2.2vh]"}`}
         style={{ color: textColor }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -154,11 +159,13 @@ function MenuItem({
         <div ref={marqueeInnerRef} className="flex h-full w-fit">
           {[...Array(repetitions)].map((_, idx) => (
             <div key={idx} className="marquee-part flex shrink-0 items-center" style={{ color: marqueeTextColor }}>
-              <span className="whitespace-nowrap px-[1vw] text-[2.2vh] font-normal uppercase leading-[1]">
+              <span
+                className={`whitespace-nowrap px-[1vw] font-normal uppercase leading-[1] ${compact ? "text-[1.5vh] md:text-[1.7vh]" : "text-[2.2vh]"}`}
+              >
                 {text}
               </span>
               <div
-                className="mx-[1.6vw] my-[1em] h-[5.5vh] w-[150px] rounded-[30px] bg-contain bg-center bg-no-repeat"
+                className={`mx-[1.6vw] my-[1em] rounded-[30px] bg-contain bg-center bg-no-repeat ${compact ? "h-[4.2vh] w-[110px] md:w-[120px]" : "h-[5.5vh] w-[150px]"}`}
                 style={{ backgroundImage: `url(${image})` }}
               />
             </div>

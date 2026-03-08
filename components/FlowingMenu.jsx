@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
@@ -69,30 +71,38 @@ function FlowingMenu({
         ref={trackRef}
         className={`absolute inset-0 flex items-center ${isHovered ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
       >
-        <div ref={firstSetRef} className="flex shrink-0 items-center gap-8 pr-8">
+        <div ref={firstSetRef} className="flex shrink-0 items-center gap-5 pr-5 md:gap-6 md:pr-6">
           {items.map((item, index) => (
-            <div key={`set-a-${item.text}-${index}`} className="flex items-center gap-8">
+            <a
+              key={`set-a-${item.text}-${index}`}
+              href={item.link}
+              className="flex items-center gap-4 px-1 transition-transform hover:scale-[1.02]"
+              aria-label={item.text}
+            >
               <div
-                className="h-[84px] w-[168px] shrink-0 bg-center bg-contain bg-no-repeat"
+                className="h-[78px] w-[160px] shrink-0 rounded-xl bg-transparent bg-center bg-contain bg-no-repeat"
                 style={{ backgroundImage: `url(${item.image})` }}
-                aria-label={item.text}
                 role="img"
               />
-              <span className="text-3xl leading-none text-white/35">.</span>
-            </div>
+              <span className="text-2xl leading-none text-white/25">.</span>
+            </a>
           ))}
         </div>
-        <div className="flex shrink-0 items-center gap-8 pr-8">
+        <div className="flex shrink-0 items-center gap-5 pr-5 md:gap-6 md:pr-6">
           {items.map((item, index) => (
-            <div key={`set-b-${item.text}-${index}`} className="flex items-center gap-8">
+            <a
+              key={`set-b-${item.text}-${index}`}
+              href={item.link}
+              className="flex items-center gap-4 px-1 transition-transform hover:scale-[1.02]"
+              aria-label={item.text}
+            >
               <div
-                className="h-[84px] w-[168px] shrink-0 bg-center bg-contain bg-no-repeat"
+                className="h-[78px] w-[160px] shrink-0 rounded-xl bg-transparent bg-center bg-contain bg-no-repeat"
                 style={{ backgroundImage: `url(${item.image})` }}
-                aria-label={item.text}
                 role="img"
               />
-              <span className="text-3xl leading-none text-white/35">.</span>
-            </div>
+              <span className="text-2xl leading-none text-white/25">.</span>
+            </a>
           ))}
         </div>
       </div>
@@ -101,7 +111,7 @@ function FlowingMenu({
         className={`absolute inset-0 flex items-center justify-center ${isHovered ? "opacity-100" : "opacity-0"} transition-opacity duration-300`}
       >
         <p
-          className="whitespace-nowrap text-center text-lg font-semibold uppercase tracking-[0.14em] md:text-3xl"
+          className="whitespace-nowrap text-center text-sm font-semibold uppercase tracking-[0.14em] md:text-xl"
           style={{ color: textColor }}
         >
           {hoverLabel}
